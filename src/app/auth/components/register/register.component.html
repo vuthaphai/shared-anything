@@ -1,0 +1,51 @@
+=== {{ isSubmitting$ | async }}========
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h1
+      class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+    >
+      Sign Up
+    </h1>
+    <p class="text-center font-extralight text-xs">
+      <a routerLink="/login">Have an account?</a>
+    </p>
+    <div class="pt-8">Backend Error Here</div>
+  </div>
+
+  <!-- Form -->
+  <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-2">
+        <input
+          type="text"
+          placeholder="Username"
+          class="text-field"
+          formControlName="username"
+        />
+      </div>
+      <div class="mb-2">
+        <input
+          type="text"
+          placeholder="Email"
+          class="text-field"
+          formControlName="email"
+        />
+      </div>
+      <div class="mb-2">
+        <input
+          type="password"
+          placeholder="Password"
+          class="text-field"
+          formControlName="password"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-blue"
+        [disabled]="isSubmitting$ | async"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
