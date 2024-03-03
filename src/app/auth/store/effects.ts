@@ -42,7 +42,6 @@ export const registerEffect = createEffect(
       switchMap(({ request }) => {
         return authService.register(request).pipe(
           map((currentUser: CurrentUserInterface) => {
-            // window.localStorage.setItem('accessToken', currentUser.token)
             persistanceService.set('accessToken', currentUser.token)
             return authActions.registerSuccess({ currentUser })
           }),
