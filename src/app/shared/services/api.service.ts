@@ -184,7 +184,7 @@ class HeaderParameter extends Parameter {
   providedIn: 'root',
 })
 export class ApiService {
-  private rootUrl: string = 'https://api.realworld.io/api/users'
+  private rootUrl: string = 'https://api.realworld.io/api'
   private _query = new Map<string, QueryParameter>()
   private _header = new Map<string, HeaderParameter>()
   constructor(private http: HttpClient) {}
@@ -202,6 +202,10 @@ export class ApiService {
     const httpOptions: { headers: any; responseType: any } = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+        'Access-Control-Allow-Headers':
+          'Accept, X-Requested-With, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization',
       }),
       responseType,
     }

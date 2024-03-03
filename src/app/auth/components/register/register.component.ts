@@ -48,7 +48,8 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<{ auth: AuthStateInterface }> // private authService: AuthService
+    private store: Store<{ auth: AuthStateInterface }>,
+    private authService: AuthService
   ) {}
 
   onSubmit() {
